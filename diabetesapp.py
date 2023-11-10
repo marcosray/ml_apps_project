@@ -4,13 +4,14 @@ import joblib
 import os
 import subprocess
 
-subprocess.call(['pip', 'install', 'scikit-learn==0.24.2'])
+subprocess.call(['pip', 'install', 'scikit-learn==0.24.2', 'joblib==1.0.1'])
+
 
 # Load the trained model
-model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.joblib')
+#model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.joblib')
 
 # Load the model
-model = joblib.load(model_path)
+model = joblib.load('diabetes_model.joblib')
 
 # Streamlit app description
 st.write("""
