@@ -42,18 +42,21 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Training the Random Forest classifier
 rf = RandomForestClassifier()
 rf.fit(X_train, y_train)
+# Use the specified hyperparameters
+best_params = {'max_depth': 7, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100}
 
-# Hyperparameter tuning using GridSearchCV
-param_grid = {
-    'n_estimators': [100, 200, 300],
-    'max_depth': [3, 5, 7, None],
-    'max_features': ['auto', 'sqrt', 'log2'],
-    'min_samples_split': [2, 5, 10],
-    'min_samples_leaf': [1, 2, 4]
-}
+# Create a RandomForestRegressor with the specified parameters
+grid_search = RandomForestRegressor(
+    max_depth=best_params['max_depth'],
+    max_features=best_params['max_features'],
+    min_samples_leaf=best_params['min_samples_leaf'],
+    min_samples_split=best_params['min_samples_split'],
+    n_estimators=best_params['n_estimators']
+)
 
-grid_search = GridSearchCV(estimator=rf, param_grid=param_grid, cv=5, n_jobs=-1)
+# Fit the model
 grid_search.fit(X_train, y_train)
+
 best_params = grid_search.best_params_
 print("Best parameters:", best_params)
 
