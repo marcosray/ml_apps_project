@@ -1,6 +1,13 @@
+import sys
+import subprocess
+import joblib
+
+# Debugging output
+print(f"Python version: {sys.version}")
+subprocess.call(['pip', 'list'])  # Print installed packages
+
 import streamlit as st
 import pandas as pd
-import joblib
 import pickle
 
 # Load the trained model
