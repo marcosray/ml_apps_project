@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import joblib
 import os
+import subprocess
+
+subprocess.call(['pip', 'install', 'scikit-learn==0.24.2'])
 
 # Load the trained model
 model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.joblib')
