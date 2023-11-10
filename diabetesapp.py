@@ -1,8 +1,12 @@
+import subprocess
+import joblib
+
+# Explicitly install dependencies
+subprocess.call(['pip', 'install', 'scikit-learn==0.24.2', 'joblib==1.0.1'])
+
 import streamlit as st
 import pandas as pd
-import joblib
 import os
-import subprocess
 
 subprocess.call(['pip', 'install', 'scikit-learn==0.24.2', 'joblib==1.0.1'])
 
@@ -11,7 +15,13 @@ subprocess.call(['pip', 'install', 'scikit-learn==0.24.2', 'joblib==1.0.1'])
 #model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.joblib')
 
 # Load the model
-model = joblib.load('diabetes_model.joblib')
+#model = joblib.load('diabetes_model.joblib')
+model_path = 'diabetes_model.joblib'
+
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"Model file not found at {model_path}. Please check the file path.")
+
+model = joblib.load(model_path)
 
 # Streamlit app description
 st.write("""
