@@ -1,17 +1,11 @@
 import streamlit as st
 import pandas as pd
-import os
 import joblib
-
-#subprocess.call(['pip', 'install', 'scikit-learn==0.24.2', 'joblib==1.0.1'])
-
+import pickle
 
 # Load the trained model
-#model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.joblib')
-
-# Load the model
-model = joblib.load('diabetes_model.joblib')
-
+#model = joblib.load('diabetes_model.joblib')
+model = joblib.load('diabetes_test.pkl')
 
 # Streamlit app description
 st.write("""
