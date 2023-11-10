@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
 
 # Load the trained model
-model = joblib.load('diabetes_model.joblib')
+model_path = os.path.join(os.path.dirname(__file__), 'diabetes_model.joblib')
+
+# Load the model
+model = joblib.load(model_path)
 
 # Streamlit app description
 st.write("""
