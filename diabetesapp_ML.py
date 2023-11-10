@@ -57,9 +57,6 @@ grid_search = RandomForestClassifier(
 # Fit the model
 grid_search.fit(X_train, y_train)
 
-#best_params = grid_search.best_params_
-#print("Best parameters:", best_params)
-
 # Evaluating the model
 y_pred = grid_search.predict(X_test)
 print("Accuracy Score:", accuracy_score(y_test, y_pred))
