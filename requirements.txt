@@ -8,4 +8,4 @@ streamlit-pandas-profiling
 tensorflow
 Pillow>=8.0.0
 joblib==1.0.1
-Pickle
+pickle
