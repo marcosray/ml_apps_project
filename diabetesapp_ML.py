@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import pickle
-import sns
+import seaborn as sns
 # Importing necessary libraries
 import pandas as pd
 import numpy as np
