@@ -1,10 +1,11 @@
-import sys
 import subprocess
+import sys
 import joblib
+import os
 
-# Debugging output
-print(f"Python version: {sys.version}")
-subprocess.call(['pip', 'list'])  # Print installed packages
+# Explicitly install dependencies
+subprocess.run([sys.executable, "-m", "pip", "install", "scikit-learn==0.24.2", "joblib==1.0.1"])
+
 
 import streamlit as st
 import pandas as pd
